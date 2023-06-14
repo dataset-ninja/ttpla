@@ -4,6 +4,6 @@ The dataset consists of 1242 images with 11468 labeled objects belonging to 5 di
 
 Each image in the TTPLA dataset has bounding boxes annotations. All images are labeled (i.e. with annotations). There is 1 split in the dataset: *ds* (1242 images). The dataset was released in 2020 by the [University of South Carolina](https://sc.edu/).
 
-Here are the visualized examples for each of the 5 classes:
+Here is the visualized example grid with annotations:
 
-[Dataset classes](https://github.com/dataset-ninja/ttpla/raw/main/visualizations/classes_preview.webm)
+<img src="https://github.com/dataset-ninja/ttpla/raw/main/visualizations/side_annotations_grid.png">
