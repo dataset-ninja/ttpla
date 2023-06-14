@@ -6,7 +6,7 @@ from dataset_tools.templates import AnnotationType, CVTask, Industry, License
 # * Before uploading to instance #
 ##################################
 PROJECT_NAME: str = "TTPLA"
-PROJECT_NAME_FULL: Optional[str] = "TTPLA: An Aerial-Image Dataset for Detection and Segmentation of Transmission Towers and Power Lines"
+PROJECT_NAME_FULL: str = "TTPLA: An Aerial-Image Dataset for Detection and Segmentation of Transmission Towers and Power Lines"
 
 ##################################
 # * After uploading to instance ##

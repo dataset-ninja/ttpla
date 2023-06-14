@@ -1,0 +1,1 @@
+TTPLA: An Aerial-Image Dataset for Detection and Segmentation of Transmission Towers and Power Lines is under [Apache License Version 2.0, January 2004](https://www.apache.org/licenses/LICENSE-2.0) license.
