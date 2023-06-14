@@ -5,40 +5,40 @@ from dataset_tools.templates import AnnotationType, CVTask, Industry, License
 ##################################
 # * Before uploading to instance #
 ##################################
-PROJECT_NAME: str = None
-PROJECT_NAME_FULL: Optional[str] = None
+PROJECT_NAME: str = "TTPLA"
+PROJECT_NAME_FULL: Optional[str] = "TTPLA: An Aerial-Image Dataset for Detection and Segmentation of Transmission Towers and Power Lines"
 
 ##################################
 # * After uploading to instance ##
 ##################################
-LICENSE: License = None
-INDUSTRIES: List[Industry] = None
-CV_TASKS: List[CVTask] = None
-ANNOTATION_TYPES: List[AnnotationType] = None
+LICENSE: License = License.Apache_2_0()
+INDUSTRIES: List[Industry] = Industry.Energy()
+CV_TASKS: List[CVTask] = [CVTask.ObjectDetection()]
+ANNOTATION_TYPES: List[AnnotationType] =  [AnnotationType.ObjectDetection()]
 
-RELEASE_YEAR: int = None
-HOMEPAGE_URL: str = None
+RELEASE_YEAR: int = 2020
+HOMEPAGE_URL: str = "https://github.com/r3ab/ttpla_dataset"
 # e.g. "https://some.com/dataset/homepage"
 
-PREVIEW_IMAGE_ID: int = None
+PREVIEW_IMAGE_ID: int = 398856
 # This should be filled AFTER uploading images to instance, just ID of any image.
 
-GITHUB_URL: str = None
+GITHUB_URL: str = "https://github.com/dataset-ninja/ttpla"
 # URL to GitHub repo on dataset ninja (e.g. "https://github.com/dataset-ninja/some-dataset")
 
 ##################################
 ### * Optional after uploading ###
 ##################################
-DOWNLOAD_ORIGINAL_URL: Optional[Union[str, dict]] = None
+DOWNLOAD_ORIGINAL_URL: Optional[Union[str, dict]] = "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1Yz59yXCiPKS0_X4K3x9mW22NLnxjvrr0"
 # Optional link for downloading original dataset (e.g. "https://some.com/dataset/download")
 
 CLASS2COLOR: Optional[Dict[str, List[str]]] = None
 # If specific colors for classes are needed, fill this dict (e.g. {"class1": [255, 0, 0], "class2": [0, 255, 0]})
 
-PAPER: Optional[str] = None
-CITATION_URL: Optional[str] = None
-ORGANIZATION_NAME: Optional[Union[str, List[str]]] = None
-ORGANIZATION_URL: Optional[Union[str, List[str]]] = None
+PAPER: Optional[str] = "https://arxiv.org/pdf/2010.10032.pdf"
+CITATION_URL: Optional[str] = "https://github.com/r3ab/ttpla_dataset#citation"
+ORGANIZATION_NAME: Optional[Union[str, List[str]]] = "University of South Carolina"
+ORGANIZATION_URL: Optional[Union[str, List[str]]] = "https://sc.edu/"
 TAGS: List[str] = None
 
 ##################################
