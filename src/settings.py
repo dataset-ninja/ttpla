@@ -13,8 +13,8 @@ PROJECT_NAME_FULL: str = "TTPLA: An Aerial-Image Dataset for Detection and Segme
 ##################################
 LICENSE: License = License.Apache_2_0()
 INDUSTRIES: List[Industry] = Industry.Energy()
-CV_TASKS: List[CVTask] = [CVTask.ObjectDetection()]
-ANNOTATION_TYPES: List[AnnotationType] =  [AnnotationType.ObjectDetection()]
+CV_TASKS: List[CVTask] = [CVTask.SemanticSegmentation(), CVTask.ObjectDetection(), CVTask.InstanceSegmentation()]
+ANNOTATION_TYPES: List[AnnotationType] =  [AnnotationType.InstanceSegmentation()]
 
 RELEASE_YEAR: int = 2020
 HOMEPAGE_URL: str = "https://github.com/r3ab/ttpla_dataset"
