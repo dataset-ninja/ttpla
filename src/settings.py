@@ -11,10 +11,14 @@ PROJECT_NAME_FULL: str = "TTPLA: An Aerial-Image Dataset for Detection and Segme
 ##################################
 # * After uploading to instance ##
 ##################################
-LICENSE: License = License.Apache_2_0()
+LICENSE: License = License.CC_BY_4_0
 INDUSTRIES: List[Industry] = Industry.Energy()
-CV_TASKS: List[CVTask] = [CVTask.SemanticSegmentation(), CVTask.ObjectDetection(), CVTask.InstanceSegmentation()]
-ANNOTATION_TYPES: List[AnnotationType] =  [AnnotationType.InstanceSegmentation()]
+CV_TASKS: List[CVTask] = [
+    CVTask.SemanticSegmentation(),
+    CVTask.ObjectDetection(),
+    CVTask.InstanceSegmentation(),
+]
+ANNOTATION_TYPES: List[AnnotationType] = [AnnotationType.InstanceSegmentation()]
 
 RELEASE_YEAR: int = 2020
 HOMEPAGE_URL: str = "https://github.com/r3ab/ttpla_dataset"
@@ -29,7 +33,9 @@ GITHUB_URL: str = "https://github.com/dataset-ninja/ttpla"
 ##################################
 ### * Optional after uploading ###
 ##################################
-DOWNLOAD_ORIGINAL_URL: Optional[Union[str, dict]] = "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1Yz59yXCiPKS0_X4K3x9mW22NLnxjvrr0"
+DOWNLOAD_ORIGINAL_URL: Optional[
+    Union[str, dict]
+] = "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1Yz59yXCiPKS0_X4K3x9mW22NLnxjvrr0"
 # Optional link for downloading original dataset (e.g. "https://some.com/dataset/download")
 
 CLASS2COLOR: Optional[Dict[str, List[str]]] = None
