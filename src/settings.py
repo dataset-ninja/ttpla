@@ -11,7 +11,7 @@ PROJECT_NAME_FULL: str = "TTPLA: An Aerial-Image Dataset for Detection and Segme
 ##################################
 # * After uploading to instance ##
 ##################################
-LICENSE: License = License.CC_BY_4_0
+LICENSE: License = License.CC_BY_4_0()
 INDUSTRIES: List[Industry] = Industry.Energy()
 CV_TASKS: List[CVTask] = [
     CVTask.SemanticSegmentation(),
