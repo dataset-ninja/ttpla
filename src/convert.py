@@ -32,9 +32,9 @@ images_ext = ".jpg"
 ann_ext = ".json"
 
 
-qwertyy = load_json_file(
-    "./APP_DATA/data_original_size/1_00217.json"
-)
+# qwertyy = load_json_file(
+#     "./APP_DATA/data_original_size/1_00217.json"
+# )
 
 
 def create_ann(image_path):
