@@ -15,6 +15,7 @@ from dataset_tools.templates import (
 ##################################
 PROJECT_NAME: str = "TTPLA"
 PROJECT_NAME_FULL: str = "TTPLA: An Aerial-Image Dataset for Detection and Segmentation of Transmission Towers and Power Lines"
+HIDE_DATASET = False  # set False when 100% sure about repo quality
 
 ##################################
 # * After uploading to instance ##
@@ -24,9 +25,9 @@ APPLICATIONS: List[Union[Industry, Domain, Research]] = [Industry.Energy()]
 CATEGORY: Category = Category.EnergyAndUtilities()
 
 CV_TASKS: List[CVTask] = [
+    CVTask.InstanceSegmentation(),
     CVTask.SemanticSegmentation(),
     CVTask.ObjectDetection(),
-    CVTask.InstanceSegmentation(),
 ]
 ANNOTATION_TYPES: List[AnnotationType] = [AnnotationType.InstanceSegmentation()]
 
@@ -37,7 +38,7 @@ if RELEASE_DATE is None:
 HOMEPAGE_URL: str = "https://github.com/r3ab/ttpla_dataset"
 # e.g. "https://some.com/dataset/homepage"
 
-PREVIEW_IMAGE_ID: int = 398501
+PREVIEW_IMAGE_ID: int = 2001960
 # This should be filled AFTER uploading images to instance, just ID of any image.
 
 GITHUB_URL: str = "https://github.com/dataset-ninja/ttpla"
@@ -51,10 +52,15 @@ DOWNLOAD_ORIGINAL_URL: Optional[
 ] = "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1Yz59yXCiPKS0_X4K3x9mW22NLnxjvrr0"
 # Optional link for downloading original dataset (e.g. "https://some.com/dataset/download")
 
-CLASS2COLOR: Optional[Dict[str, List[str]]] = None
+CLASS2COLOR: Optional[Dict[str, List[str]]] = {
+    "cable": [230, 25, 75],
+    "tower_lattice": [60, 180, 75],
+    "tower_wooden": [255, 225, 25],
+    "tower_tucohy": [0, 130, 200],
+    "void": [245, 130, 48],
+}
 # If specific colors for classes are needed, fill this dict (e.g. {"class1": [255, 0, 0], "class2": [0, 255, 0]})
-
-PAPER: Optional[str] = "https://arxiv.org/pdf/2010.10032.pdf"
+PAPER: Optional[str] = "https://arxiv.org/abs/2010.10032.pdf"
 CITATION_URL: Optional[str] = "https://github.com/r3ab/ttpla_dataset#citation"
 AUTHORS: Optional[List[str]] = ["Abdelfattah, Rabab", "Wang, Xiaofeng", "Wang, Song"]
 
@@ -83,6 +89,7 @@ def get_settings():
     settings = {
         "project_name": PROJECT_NAME,
         "license": LICENSE,
+        "hide_dataset": HIDE_DATASET,
         "applications": APPLICATIONS,
         "category": CATEGORY,
         "cv_tasks": CV_TASKS,

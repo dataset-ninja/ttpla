@@ -1,19 +1,19 @@
 # https://github.com/r3ab/ttpla_dataset
 
 import os
+import xml.etree.ElementTree as ET
+
 import numpy as np
 import supervisely as sly
+from dotenv import load_dotenv
 from supervisely.io.fs import (
-    get_file_name_with_ext,
-    get_file_name,
-    get_file_ext,
     file_exists,
+    get_file_ext,
+    get_file_name,
+    get_file_name_with_ext,
     get_file_size,
 )
-import xml.etree.ElementTree as ET
 from supervisely.io.json import load_json_file
-from dotenv import load_dotenv
-
 
 # if sly.is_development():
 # load_dotenv("local.env")
@@ -25,11 +25,13 @@ from dotenv import load_dotenv
 
 
 # project_name = "TTPLA"
-dataset_path = "./APP_DATA/data_original_size"
+dataset_path = "APP_DATA/data_original_size"
+splits_dir = "APP_DATA/splitting_dataset_txt"
 batch_size = 30
-ds_name = "ds"
+ds_names = ["train", "test", "val"]
 images_ext = ".jpg"
 ann_ext = ".json"
+split_ext = ".txt"
 
 
 # qwertyy = load_json_file(
@@ -80,7 +82,6 @@ name_to_obj_class = {
 }
 
 
-
 def convert_and_upload_supervisely_project(
     api: sly.Api, workspace_id: int, project_name: str
 ) -> sly.ProjectInfo:
@@ -92,19 +93,29 @@ def convert_and_upload_supervisely_project(
         im_name for im_name in os.listdir(dataset_path) if get_file_ext(im_name) == images_ext
     ]
 
-    dataset = api.dataset.create(project.id, ds_name, change_name_if_conflict=True)
+    for ds_name in ds_names:
+        file_path = os.path.join(splits_dir, ds_name + split_ext)
+        with open(file_path, "r") as file:
+            file_content = file.read()
 
-    progress = sly.Progress("Create dataset {}".format(ds_name), len(images_names))
+        ann_in_split = file_content.split("\n")
+        fname_in_split = [get_file_name(line.strip()) for line in ann_in_split if line.strip()]
 
-    for img_names_batch in sly.batched(images_names, batch_size=batch_size):
-        img_pathes_batch = [os.path.join(dataset_path, im_name) for im_name in img_names_batch]
+        curr_images_names = [img for img in images_names if get_file_name(img) in fname_in_split]
 
-        img_infos = api.image.upload_paths(dataset.id, img_names_batch, img_pathes_batch)
-        img_ids = [im_info.id for im_info in img_infos]
+        dataset = api.dataset.create(project.id, ds_name, change_name_if_conflict=True)
 
-        anns = [create_ann(image_path) for image_path in img_pathes_batch]
-        api.annotation.upload_anns(img_ids, anns)
+        progress = sly.Progress("Create dataset {}".format(ds_name), len(curr_images_names))
 
-        progress.iters_done_report(len(img_names_batch))
+        for img_names_batch in sly.batched(curr_images_names, batch_size=batch_size):
+            img_pathes_batch = [os.path.join(dataset_path, im_name) for im_name in img_names_batch]
+
+            img_infos = api.image.upload_paths(dataset.id, img_names_batch, img_pathes_batch)
+            img_ids = [im_info.id for im_info in img_infos]
+
+            anns = [create_ann(image_path) for image_path in img_pathes_batch]
+            api.annotation.upload_anns(img_ids, anns)
+
+            progress.iters_done_report(len(img_names_batch))
 
     return project
