@@ -20,7 +20,7 @@ HIDE_DATASET = False  # set False when 100% sure about repo quality
 ##################################
 # * After uploading to instance ##
 ##################################
-LICENSE: License = License.CC_BY_4_0()
+LICENSE: License = License.Apache_2_0(source_url="https://github.com/R3ab/ttpla_dataset/blob/master/LICENSE")
 APPLICATIONS: List[Union[Industry, Domain, Research]] = [Industry.Energy()]
 CATEGORY: Category = Category.EnergyAndUtilities()
 
