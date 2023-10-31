@@ -62,7 +62,9 @@ CLASS2COLOR: Optional[Dict[str, List[str]]] = {
 # If specific colors for classes are needed, fill this dict (e.g. {"class1": [255, 0, 0], "class2": [0, 255, 0]})
 PAPER: Optional[str] = "https://arxiv.org/abs/2010.10032.pdf"
 CITATION_URL: Optional[str] = "https://github.com/r3ab/ttpla_dataset#citation"
+
 AUTHORS: Optional[List[str]] = ["Abdelfattah, Rabab", "Wang, Xiaofeng", "Wang, Song"]
+AUTHORS_CONTACTS: Optional[List[str]] = ["rabab@email.sc.edu"]
 
 ORGANIZATION_NAME: Optional[Union[str, List[str]]] = "University of South Carolina"
 ORGANIZATION_URL: Optional[Union[str, List[str]]] = "https://sc.edu/"
@@ -110,6 +112,7 @@ def get_settings():
     settings["paper"] = PAPER
     settings["citation_url"] = CITATION_URL
     settings["authors"] = AUTHORS
+    settings["authors_contacts"] = AUTHORS_CONTACTS
     settings["organization_name"] = ORGANIZATION_NAME
     settings["organization_url"] = ORGANIZATION_URL
     settings["slytagsplit"] = SLYTAGSPLIT
