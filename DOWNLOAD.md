@@ -1,6 +1,6 @@
 Dataset **TTPLA** can be downloaded in [Supervisely format](https://developer.supervisely.com/api-references/supervisely-annotation-json-format):
 
- [Download](https://assets.supervisely.com/remote/eyJsaW5rIjogImZzOi8vYXNzZXRzLzE1MjZfVFRQTEEvdHRwbGEtRGF0YXNldE5pbmphLnRhciIsICJzaWciOiAiT3lZSWw3ZVJIYmFIUXBFOG5QSmZNRXRac3B1UTZzZlpQbjhNNkxrVjltMD0ifQ==)
+ [Download](https://assets.supervisely.com/remote/eyJsaW5rIjogInMzOi8vc3VwZXJ2aXNlbHktZGF0YXNldHMvMTUyNl9UVFBMQS90dHBsYS1EYXRhc2V0TmluamEudGFyIiwgInNpZyI6ICJ1R3BKNWhoQWN2bUJta1RnM3Z0MlZ4Y3JlOUwvWEoyaFMvNVdCZkFaQjJVPSJ9?response-content-disposition=attachment%3B%20filename%3D%22ttpla-DatasetNinja.tar%22)
 
 As an alternative, it can be downloaded with *dataset-tools* package:
 ``` bash
